@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lotus International Preschool — Where Childhood Blooms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#1E3A5F',
+            'navy-dark': '#152C47',
+            'navy-light': '#2A4F7C',
+            gold: '#C9A84C',
+            'gold-light': '#DEC06A',
+            'gold-dark': '#A8882C',
+            lotus: '#E8A5A5',
+            'lotus-dark': '#D4868A',
+            'lotus-light': '#F5CECE',
+            sage: '#6B7F5E',
+            'sage-light': '#8A9E7A',
+            'sage-dark': '#4D5E43',
+            cream: '#F8F3EE',
+            'cream-dark': '#F0E8DE',
+            'warm-white': '#FEFCF9',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Montserrat', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            tight: '-0.03em',
+            'display': '-0.02em',
+          },
+          lineHeight: {
+            body: '1.75',
+          },
+          boxShadow: {
+            'card': '0 4px 6px -1px rgba(30, 58, 95, 0.06), 0 12px 28px -4px rgba(30, 58, 95, 0.1)',
+            'card-hover': '0 8px 16px -2px rgba(30, 58, 95, 0.1), 0 24px 48px -8px rgba(30, 58, 95, 0.16)',
+            'gold': '0 4px 12px rgba(201, 168, 76, 0.25), 0 1px 3px rgba(201, 168, 76, 0.15)',
+            'elevated': '0 2px 4px rgba(30,58,95,0.04), 0 8px 20px rgba(30,58,95,0.08), 0 20px 40px rgba(30,58,95,0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FEFCF9;
+      color: #1E3A5F;
+    }
+
+    /* Noise texture */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+
+    /* Nav */
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1E3A5F;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: #C9A84C;
+      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover { color: #C9A84C; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; border-radius: 2px; }
+
+    /* Btn primary */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #C9A84C 0%, #A8882C 100%);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3), 0 1px 3px rgba(201, 168, 76, 0.2);
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, opacity 0.15s ease;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 168, 76, 0.4), 0 2px 6px rgba(201, 168, 76, 0.25);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:focus-visible { outline: 2px solid #C9A84C; outline-offset: 3px; }
+
+    /* Btn secondary */
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1.5px solid #1E3A5F;
+      color: #1E3A5F;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none;
+      cursor: pointer;
+      background: transparent;
+    }
+    .btn-secondary:hover { background: #1E3A5F; color: white; transform: translateY(-2px); }
+    .btn-secondary:active { transform: translateY(0); }
+    .btn-secondary:focus-visible { outline: 2px solid #1E3A5F; outline-offset: 3px; }
+
+    /* Section heading divider */
+    .divider-gold {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .divider-gold::before,
+    .divider-gold::after {
+      content: '';
+      flex: 1;
+      max-width: 3rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C9A84C);
+    }
+    .divider-gold::after {
+      background: linear-gradient(90deg, #C9A84C, transparent);
+    }
+
+    /* Program card hover */
+    .program-card {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px -2px rgba(30, 58, 95, 0.1), 0 24px 48px -8px rgba(30, 58, 95, 0.16);
+    }
+
+    /* Value card */
+    .value-card {
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px -2px rgba(30, 58, 95, 0.1), 0 20px 40px -8px rgba(30, 58, 95, 0.12);
+    }
+
+    /* Gallery item */
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+    }
+    .gallery-item img {
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating badge */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+
+    /* Petal decoration */
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Mobile nav */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PRELOADER
+═══════════════════════════════════════════ -->
+<div id="preloader" style="position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;background:#070b13;z-index:9999999;">
+  <p id="preloader-word" style="position:relative;z-index:10;display:flex;align-items:center;color:white;font-family:'Montserrat',sans-serif;font-size:clamp(1.75rem,5vw,3.75rem);font-weight:500;opacity:0;white-space:nowrap;margin:0;">
+    <span style="display:block;width:10px;height:10px;background:white;border-radius:50%;margin-right:12px;flex-shrink:0;"></span>
+    <span id="preloader-text">Hello</span>
+  </p>
+  <svg id="preloader-svg" style="position:absolute;top:0;left:0;width:100%;pointer-events:none;" preserveAspectRatio="none">
+    <path id="preloader-path" fill="#070b13"/>
+  </svg>
+</div>
+
+<!-- ─── SVG NOISE FILTER (shared) ─── -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="grain-filter" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="gooey-filter-pixel-trail" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+        result="goo"/>
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<header id="navbar" style="position:fixed;top:0;left:0;right:0;z-index:50;transition:background 0.3s ease,box-shadow 0.3s ease;" class="bg-warm-white/95 backdrop-blur-sm">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:72px;">
+
+      <!-- Logo -->
+      <a href="#" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;flex-shrink:0;" aria-label="Lotus International Preschool home">
+        <img src="./Offical Logo.jpg" alt="Lotus International Preschool" style="height:52px;width:auto;object-fit:contain;" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav style="display:flex;align-items:center;gap:2.5rem;" class="hidden-mobile">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#programs" class="nav-link">Programs</a>
+        <a href="#facilities" class="nav-link">Facilities</a>
+        <a href="#why-us" class="nav-link">Why Lotus</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <a href="#admissions" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.8rem;">
+          Enrol Now
+        </a>
+        <button id="hamburger" onclick="toggleMenu()" aria-label="Open menu" style="display:none;background:none;border:none;cursor:pointer;padding:0.25rem;" class="show-mobile">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" style="background:#FEFCF9;border-top:1px solid #F0E8DE;padding:1.5rem;">
+    <nav style="display:flex;flex-direction:column;gap:1.25rem;">
+      <a href="#about" class="nav-link" onclick="toggleMenu()">About</a>
+      <a href="#programs" class="nav-link" onclick="toggleMenu()">Programs</a>
+      <a href="#facilities" class="nav-link" onclick="toggleMenu()">Facilities</a>
+      <a href="#why-us" class="nav-link" onclick="toggleMenu()">Why Lotus</a>
+      <a href="#contact" class="nav-link" onclick="toggleMenu()">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  @media (max-width: 768px) {
+    .hidden-mobile { display: none !important; }
+    .show-mobile { display: flex !important; }
+  }
+  @media (min-width: 769px) {
+    .show-mobile { display: none !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="home" style="min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px;background:linear-gradient(160deg, #FEFCF9 0%, #F8F3EE 50%, #F0E8DE 100%);">
+
+  <!-- Background radial glows -->
+  <div style="position:absolute;top:-20%;right:-10%;width:60%;height:80%;background:radial-gradient(ellipse at center, rgba(232,165,165,0.18) 0%, transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-10%;left:-10%;width:50%;height:60%;background:radial-gradient(ellipse at center, rgba(107,127,94,0.1) 0%, transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;top:30%;left:30%;width:40%;height:40%;background:radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);pointer-events:none;"></div>
+
+  <!-- Decorative lotus petals -->
+  <div style="position:absolute;top:12%;right:5%;opacity:0.07;pointer-events:none;" class="float">
+    <svg width="140" height="140" viewBox="0 0 100 100" fill="none">
+      <ellipse cx="50" cy="65" rx="18" ry="30" fill="#E8A5A5" transform="rotate(-20 50 65)"/>
+      <ellipse cx="50" cy="65" rx="18" ry="30" fill="#E8A5A5" transform="rotate(0 50 65)"/>
+      <ellipse cx="50" cy="65" rx="18" ry="30" fill="#E8A5A5" transform="rotate(20 50 65)"/>
+      <ellipse cx="50" cy="65" rx="18" ry="30" fill="#C9A84C" transform="rotate(-40 50 65)"/>
+      <ellipse cx="50" cy="65" rx="18" ry="30" fill="#C9A84C" transform="rotate(40 50 65)"/>
+    </svg>
+  </div>
+
+  <!-- Pixel trail gooey background -->
+  <div id="pixel-trail-container"
+    style="position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;filter:url(#gooey-filter-pixel-trail);"
+    aria-hidden="true"></div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:5rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;" class="hero-grid">
+    <!-- Left: Text -->
+    <div>
+      <!-- Eyebrow -->
+      <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);border-radius:100px;padding:0.35rem 1rem;margin-bottom:1.75rem;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;display:inline-block;"></span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Now Enrolling for 2025–26</span>
+      </div>
+
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:#1E3A5F;margin-bottom:1.25rem;">
+        Where Every<br/>
+        <em style="color:#C9A84C;font-style:italic;">Little Mind</em><br/>
+        Blooms
+      </h1>
+
+      <p style="font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:400;line-height:1.75;color:#4A6080;max-width:480px;margin-bottom:2.5rem;">
+        At Lotus International Preschool, we nurture curious hearts and growing minds through a blend of global pedagogy and timeless values — creating children who are <strong style="color:#1E3A5F;font-weight:600;">Rooted in Values, Ready for the World.</strong>
+      </p>
+
+      <!-- CTAs -->
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3rem;">
+        <a href="#admissions" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Begin Enrolment
+        </a>
+        <a href="#about" class="btn-secondary">
+          Explore Our World
+        </a>
+      </div>
+
+      <!-- Mini stats -->
+      <div style="display:flex;gap:2.5rem;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#1E3A5F;line-height:1;">200+</div>
+          <div style="font-size:0.75rem;font-weight:500;color:#7A95AD;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.2rem;">Happy Families</div>
+        </div>
+        <div style="width:1px;background:linear-gradient(180deg,transparent,#D4C4B0,transparent);"></div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#1E3A5F;line-height:1;">4+</div>
+          <div style="font-size:0.75rem;font-weight:500;color:#7A95AD;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.2rem;">Programs</div>
+        </div>
+        <div style="width:1px;background:linear-gradient(180deg,transparent,#D4C4B0,transparent);"></div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#1E3A5F;line-height:1;">15+</div>
+          <div style="font-size:0.75rem;font-weight:500;color:#7A95AD;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.2rem;">Expert Educators</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Image collage -->
+    <div style="position:relative;display:flex;justify-content:center;align-items:center;">
+      <!-- Main image card -->
+      <div style="position:relative;border-radius:24px;overflow:hidden;width:100%;max-width:460px;aspect-ratio:3/4;box-shadow:0 8px 24px -4px rgba(30,58,95,0.15),0 32px 64px -12px rgba(30,58,95,0.2);">
+        <img src="https://placehold.co/460x614/F0E8DE/6B7F5E?text=Children+Learning" alt="Children learning at Lotus Preschool" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.5) 0%,transparent 50%);"></div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
+          <div style="background:rgba(254,252,249,0.95);backdrop-filter:blur(12px);border-radius:12px;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,0.6);">
+            <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:#1E3A5F;margin-bottom:0.25rem;">"Learn · Explore · Excel"</div>
+            <div style="font-size:0.75rem;color:#7A95AD;font-weight:500;">Our guiding philosophy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating mascot badge -->
+      <div style="position:absolute;top:-1rem;right:-1rem;z-index:10;" class="float">
+        <div style="background:white;border-radius:50%;padding:0.5rem;box-shadow:0 8px 24px rgba(201,168,76,0.3),0 2px 6px rgba(201,168,76,0.2);">
+          <img src="./Mascot.png" alt="Lotus mascot" style="width:80px;height:80px;object-fit:contain;object-position:top;" />
+        </div>
+      </div>
+
+      <!-- Small floating accent card -->
+      <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;background:white;border-radius:16px;padding:1rem 1.25rem;box-shadow:0 4px 12px rgba(30,58,95,0.1),0 12px 28px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.8);max-width:180px;z-index:10;">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;">
+          <div style="width:32px;height:32px;background:rgba(201,168,76,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#1E3A5F;line-height:1;">4.9 ★</div>
+            <div style="font-size:0.65rem;color:#7A95AD;font-weight:500;letter-spacing:0.04em;">Parent Rating</div>
+          </div>
+        </div>
+        <div style="font-size:0.7rem;color:#7A95AD;line-height:1.4;">Based on 200+ parent reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave -->
+  <div style="position:absolute;bottom:0;left:0;right:0;line-height:0;">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="width:100%;height:80px;" fill="white">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FEFCF9" opacity="0.6"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center; }
+    .hero-grid > div:last-child { display: none; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     TRUST BAR
+═══════════════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,#1E3A5F 0%,#152C47 100%);padding:2.5rem 1.5rem;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;opacity:0.05;">
+    <div style="position:absolute;top:-50%;right:-10%;width:40%;height:200%;background:radial-gradient(ellipse,#C9A84C,transparent 60%);"></div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;align-items:center;" class="trust-grid">
+    <div style="display:flex;align-items:center;gap:1rem;padding:0 1rem;border-right:1px solid rgba(255,255,255,0.1);">
+      <div style="width:44px;height:44px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:white;line-height:1;">CBSE</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.15rem;">Aligned Curriculum</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;padding:0 1rem;border-right:1px solid rgba(255,255,255,0.1);">
+      <div style="width:44px;height:44px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:white;line-height:1;">1:8</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.15rem;">Teacher–Child Ratio</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;padding:0 1rem;border-right:1px solid rgba(255,255,255,0.1);">
+      <div style="width:44px;height:44px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:white;line-height:1;">100%</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.15rem;">Safe & Secure Campus</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;padding:0 1rem;">
+      <div style="width:44px;height:44px;background:rgba(201,168,76,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:white;line-height:1;">Age 2–6</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.55);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-top:0.15rem;">Playgroup to UKG</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .trust-grid { grid-template-columns: 1fr 1fr !important; }
+    .trust-grid > div { border-right: none !important; padding: 0 !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════ -->
+<section id="about" style="padding:6rem 1.5rem;background:#FEFCF9;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);"></div>
+
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="about-grid">
+    <!-- Image side -->
+    <div style="position:relative;" class="reveal">
+      <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative;box-shadow:0 8px 24px -4px rgba(30,58,95,0.12),0 24px 48px -8px rgba(30,58,95,0.15);">
+        <img src="https://placehold.co/480x600/F0E8DE/6B7F5E?text=Our+Philosophy" alt="Nurturing environment" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(201,168,76,0.15),transparent 50%);mix-blend-mode:multiply;"></div>
+      </div>
+      <!-- Quote overlay -->
+      <div style="position:absolute;bottom:-2rem;right:-2rem;background:linear-gradient(135deg,#C9A84C,#A8882C);border-radius:16px;padding:1.5rem;max-width:220px;box-shadow:0 8px 24px rgba(201,168,76,0.35);">
+        <div style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:700;color:white;line-height:1;margin-bottom:0.25rem;">15+</div>
+        <div style="font-size:0.8rem;color:rgba(255,255,255,0.85);font-weight:500;line-height:1.4;">Dedicated educators shaping futures</div>
+      </div>
+    </div>
+
+    <!-- Text side -->
+    <div class="reveal">
+      <div class="divider-gold">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Our Story</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;line-height:1.2;margin-bottom:1.5rem;">
+        Rooted in Values,<br/>
+        <em style="color:#C9A84C;">Ready for the World</em>
+      </h2>
+      <p style="font-size:0.95rem;line-height:1.8;color:#4A6080;margin-bottom:1.25rem;">
+        Lotus International Preschool was founded on the belief that early childhood is the most transformative period in a human life. Like a lotus flower that rises beautifully from still waters, every child carries within them an extraordinary potential waiting to bloom.
+      </p>
+      <p style="font-size:0.95rem;line-height:1.8;color:#4A6080;margin-bottom:2rem;">
+        Our world-class curriculum blends Montessori-inspired learning, play-based discovery, and value-centred education — delivered in a warm, nurturing environment designed to make every child feel safe, celebrated, and capable.
+      </p>
+
+      <!-- Values list -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;">
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#C9A84C;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Play-Based Learning</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#E8A5A5;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Bilingual Education</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#6B7F5E;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Social-Emotional Growth</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#C9A84C;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Global Perspectives</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#E8A5A5;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Arts & Creativity</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.625rem;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#6B7F5E;flex-shrink:0;"></div>
+          <span style="font-size:0.875rem;font-weight:500;color:#1E3A5F;">Mindful Values</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .about-grid > div:first-child { display: none; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     PROGRAMS
+═══════════════════════════════════════════ -->
+<section id="programs" style="padding:6rem 1.5rem;background:linear-gradient(180deg,#F8F3EE 0%,#FEFCF9 100%);position:relative;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="divider-gold">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">What We Offer</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;line-height:1.2;margin-bottom:1rem;">
+        Our <em style="color:#C9A84C;">Programs</em>
+      </h2>
+      <p style="font-size:0.95rem;color:#4A6080;line-height:1.75;max-width:560px;margin:0 auto;">
+        Age-appropriate programs designed to meet every child exactly where they are — and gently guide them to where they can be.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="programs-grid">
+
+      <!-- Playgroup -->
+      <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
+        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#F5CECE,#E8A5A5);">
+          <img src="https://placehold.co/300x180/F5CECE/D4868A?text=Playgroup" alt="Playgroup" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+            <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#E8A5A5;text-transform:uppercase;">Age 2–3</span>
+          </div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">Playgroup</h3>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">First steps into learning through sensory play, social exploration, and joyful discovery in a loving environment.</p>
+          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.2s ease;">
+            Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Nursery -->
+      <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
+        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#D5DDCF,#6B7F5E);">
+          <img src="https://placehold.co/300x180/D5DDCF/6B7F5E?text=Nursery" alt="Nursery" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+            <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#6B7F5E;text-transform:uppercase;">Age 3–4</span>
+          </div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">Nursery</h3>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Building foundational language, numeracy, and social skills through nature, stories, and hands-on activities.</p>
+          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+            Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- LKG -->
+      <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
+        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#EDE0C8,#C9A84C);">
+          <img src="https://placehold.co/300x180/EDE0C8/C9A84C?text=LKG" alt="LKG" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+            <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#C9A84C;text-transform:uppercase;">Age 4–5</span>
+          </div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">LKG</h3>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Lower Kindergarten ignites imagination and expression — where confident voices and independent thinkers emerge.</p>
+          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+            Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- UKG -->
+      <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
+        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#C5D4E8,#1E3A5F);">
+          <img src="https://placehold.co/300x180/C5D4E8/1E3A5F?text=UKG" alt="UKG" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+            <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#1E3A5F;text-transform:uppercase;">Age 5–6</span>
+          </div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">UKG</h3>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Upper Kindergarten prepares children for primary school with robust academics, critical thinking, and global awareness.</p>
+          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+            Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px) {
+    .programs-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 550px) {
+    .programs-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     FACILITIES (Gallery)
+═══════════════════════════════════════════ -->
+<section id="facilities" style="padding:6rem 1.5rem;background:#FEFCF9;position:relative;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="divider-gold">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Campus Life</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;margin-bottom:1rem;">
+        Spaces That <em style="color:#C9A84C;">Inspire</em>
+      </h2>
+      <p style="font-size:0.95rem;color:#4A6080;line-height:1.75;max-width:520px;margin:0 auto;">
+        Every corner of our campus is intentionally designed to stimulate curiosity, encourage independence, and spark the joy of learning.
+      </p>
+    </div>
+
+    <!-- Mosaic Gallery -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:1.25rem;" class="gallery-grid">
+      <div class="gallery-item reveal" style="grid-column:1/2;grid-row:1/2;aspect-ratio:4/3;">
+        <img src="https://placehold.co/400x300/F0E8DE/6B7F5E?text=Reception+%26+Entrance" alt="Entrance" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;">Welcome Lobby</div>
+          <div style="font-size:0.72rem;opacity:0.8;margin-top:0.15rem;">First impressions matter</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="grid-column:2/3;grid-row:1/3;aspect-ratio:3/5;">
+        <img src="https://placehold.co/350x600/E8E0D5/1E3A5F?text=Classrooms" alt="Classrooms" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 50%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;">Learning Classrooms</div>
+          <div style="font-size:0.72rem;opacity:0.8;margin-top:0.15rem;">Warm & purposeful spaces</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="grid-column:3/4;grid-row:1/2;aspect-ratio:4/3;">
+        <img src="https://placehold.co/400x300/D5DDCF/6B7F5E?text=Outdoor+Play" alt="Outdoor Play" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;">Outdoor Area</div>
+          <div style="font-size:0.72rem;opacity:0.8;margin-top:0.15rem;">Nature-inspired play</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="grid-column:1/2;grid-row:2/3;aspect-ratio:4/3;">
+        <img src="https://placehold.co/400x300/F5CECE/D4868A?text=Art+%26+Craft" alt="Art Room" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;">Art & Craft Studio</div>
+          <div style="font-size:0.72rem;opacity:0.8;margin-top:0.15rem;">Creative expression</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" style="grid-column:3/4;grid-row:2/3;aspect-ratio:4/3;">
+        <img src="https://placehold.co/400x300/EDE0C8/C9A84C?text=Library" alt="Library" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;">Reading Corner</div>
+          <div style="font-size:0.72rem;opacity:0.8;margin-top:0.15rem;">Stories come alive here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+    .gallery-grid > div { grid-column: auto !important; grid-row: auto !important; aspect-ratio: 4/3 !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     WHY LOTUS
+═══════════════════════════════════════════ -->
+<section id="why-us" style="padding:6rem 1.5rem;background:linear-gradient(135deg,#1E3A5F 0%,#152C47 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;opacity:0.04;pointer-events:none;">
+    <div style="position:absolute;top:-30%;right:-5%;width:50%;height:120%;background:radial-gradient(ellipse,#C9A84C,transparent 60%);"></div>
+    <div style="position:absolute;bottom:-20%;left:-5%;width:40%;height:80%;background:radial-gradient(ellipse,#E8A5A5,transparent 60%);"></div>
+  </div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="divider-gold">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Our Difference</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:white;margin-bottom:1rem;">
+        Why Families <em style="color:#C9A84C;">Choose Lotus</em>
+      </h2>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:520px;margin:0 auto;">
+        We are not just a preschool — we are a community committed to every child's holistic development.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="why-grid">
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;transition:background 0.2s ease;">
+        <div style="width:52px;height:52px;background:rgba(201,168,76,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">Safe & Nurturing Campus</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">CCTV-monitored, gated campus with trained support staff ensuring every child's safety at all times.</p>
+      </div>
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;">
+        <div style="width:52px;height:52px;background:rgba(232,165,165,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8A5A5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">International Curriculum</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">Blending global best practices with Indian cultural values — giving children a truly international foundation.</p>
+      </div>
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;">
+        <div style="width:52px;height:52px;background:rgba(107,127,94,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8A9E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">Expert Educators</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">Our teachers are certified early childhood professionals who deeply love what they do — and it shows every day.</p>
+      </div>
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;">
+        <div style="width:52px;height:52px;background:rgba(201,168,76,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">Holistic Development</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">Cognitive, emotional, physical, and social growth — we address every dimension of your child's development.</p>
+      </div>
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;">
+        <div style="width:52px;height:52px;background:rgba(232,165,165,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8A5A5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">Parent Partnership</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">Regular progress updates, open communication, and parent workshops — because education is a partnership.</p>
+      </div>
+
+      <div class="value-card reveal" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;">
+        <div style="width:52px;height:52px;background:rgba(107,127,94,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8A9E7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;margin-bottom:0.75rem;">Value-Based Education</h3>
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.55);">Respect, compassion, courage, and curiosity — values woven into every activity, story, and interaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 550px) {
+    .why-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section style="padding:6rem 1.5rem;background:linear-gradient(180deg,#FEFCF9 0%,#F8F3EE 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);"></div>
+
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="divider-gold">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Testimonials</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;margin-bottom:1rem;">
+        Families Who <em style="color:#C9A84C;">Love Lotus</em>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="testimonials-grid">
+
+      <div class="reveal" style="background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 6px -1px rgba(30,58,95,0.05),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);position:relative;">
+        <div style="position:absolute;top:1.5rem;right:1.5rem;font-size:3rem;color:rgba(201,168,76,0.15);font-family:'Playfair Display',serif;line-height:1;">"</div>
+        <div style="display:flex;gap:0.25rem;margin-bottom:1rem;">
+          <span style="color:#C9A84C;font-size:0.9rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.8;color:#4A6080;margin-bottom:1.5rem;font-style:italic;">"My daughter transformed from a shy toddler to a confident, curious little explorer in just one year at Lotus. The teachers are genuinely nurturing — they know every child individually."</p>
+        <div style="display:flex;align-items:center;gap:0.875rem;">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#E8A5A5,#D4868A);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;flex-shrink:0;">P</div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;">Priya Sharma</div>
+            <div style="font-size:0.75rem;color:#7A95AD;">Parent, Nursery Batch 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 6px -1px rgba(30,58,95,0.05),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);position:relative;">
+        <div style="position:absolute;top:1.5rem;right:1.5rem;font-size:3rem;color:rgba(201,168,76,0.15);font-family:'Playfair Display',serif;line-height:1;">"</div>
+        <div style="display:flex;gap:0.25rem;margin-bottom:1rem;">
+          <span style="color:#C9A84C;font-size:0.9rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.8;color:#4A6080;margin-bottom:1.5rem;font-style:italic;">"The facilities are world-class and the curriculum is thoughtfully designed. Our son loves going to school every day — that says it all. Lotus has exceeded every expectation we had."</p>
+        <div style="display:flex;align-items:center;gap:0.875rem;">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#6B7F5E,#4D5E43);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;flex-shrink:0;">R</div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;">Rahul & Neha Mehta</div>
+            <div style="font-size:0.75rem;color:#7A95AD;">Parents, LKG Batch 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 6px -1px rgba(30,58,95,0.05),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);position:relative;">
+        <div style="position:absolute;top:1.5rem;right:1.5rem;font-size:3rem;color:rgba(201,168,76,0.15);font-family:'Playfair Display',serif;line-height:1;">"</div>
+        <div style="display:flex;gap:0.25rem;margin-bottom:1rem;">
+          <span style="color:#C9A84C;font-size:0.9rem;">★★★★★</span>
+        </div>
+        <p style="font-size:0.875rem;line-height:1.8;color:#4A6080;margin-bottom:1.5rem;font-style:italic;">"What sets Lotus apart is the values integration. My child now talks about kindness, sharing, and responsibility at home. It's not just academics — it's character building at its finest."</p>
+        <div style="display:flex;align-items:center;gap:0.875rem;">
+          <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#C9A84C,#A8882C);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:1rem;flex-shrink:0;">A</div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;">Anjali Gupta</div>
+            <div style="font-size:0.75rem;color:#7A95AD;">Parent, UKG Batch 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     ADMISSIONS CTA
+═══════════════════════════════════════════ -->
+<section id="admissions" style="padding:6rem 1.5rem;background:#FEFCF9;position:relative;overflow:hidden;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="background:linear-gradient(135deg,#F8F3EE 0%,#F0E8DE 100%);border-radius:24px;padding:4rem;text-align:center;position:relative;overflow:hidden;box-shadow:0 8px 24px -4px rgba(30,58,95,0.1),0 24px 48px -8px rgba(30,58,95,0.12);border:1px solid rgba(201,168,76,0.2);" class="reveal">
+      <!-- Decorative blobs -->
+      <div style="position:absolute;top:-40%;right:-10%;width:50%;height:120%;background:radial-gradient(ellipse,rgba(201,168,76,0.12),transparent 65%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-30%;left:-5%;width:40%;height:80%;background:radial-gradient(ellipse,rgba(232,165,165,0.1),transparent 65%);pointer-events:none;"></div>
+
+      <div style="position:relative;">
+        <img src="./Offical Logo.jpg" alt="Lotus International Preschool" style="height:80px;margin:0 auto 1.5rem;display:block;object-fit:contain;" />
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;margin-bottom:1rem;">
+          Give Your Child the Gift<br/>of a <em style="color:#C9A84C;">Blooming Start</em>
+        </h2>
+        <p style="font-size:0.95rem;color:#4A6080;line-height:1.75;max-width:520px;margin:0 auto 2.5rem;">
+          Admissions for 2025–26 are now open. Limited seats available across all programs. Take the first step towards your child's extraordinary journey.
+        </p>
+
+        <!-- Form -->
+        <form onsubmit="handleEnquiry(event)" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:580px;margin:0 auto;" class="enquiry-form">
+          <input type="text" placeholder="Parent's Name" required style="grid-column:1/2;font-family:'Montserrat',sans-serif;font-size:0.875rem;padding:0.875rem 1.25rem;border:1.5px solid rgba(30,58,95,0.15);border-radius:8px;background:white;color:#1E3A5F;outline:none;transition:border-color 0.2s ease;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(30,58,95,0.15)'" />
+          <input type="tel" placeholder="Mobile Number" required style="grid-column:2/3;font-family:'Montserrat',sans-serif;font-size:0.875rem;padding:0.875rem 1.25rem;border:1.5px solid rgba(30,58,95,0.15);border-radius:8px;background:white;color:#1E3A5F;outline:none;transition:border-color 0.2s ease;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(30,58,95,0.15)'" />
+          <select required style="grid-column:1/2;font-family:'Montserrat',sans-serif;font-size:0.875rem;padding:0.875rem 1.25rem;border:1.5px solid rgba(30,58,95,0.15);border-radius:8px;background:white;color:#4A6080;outline:none;transition:border-color 0.2s ease;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(30,58,95,0.15)'">
+            <option value="" disabled selected>Child's Age</option>
+            <option value="2-3">2–3 years (Playgroup)</option>
+            <option value="3-4">3–4 years (Nursery)</option>
+            <option value="4-5">4–5 years (LKG)</option>
+            <option value="5-6">5–6 years (UKG)</option>
+          </select>
+          <input type="email" placeholder="Email Address" required style="grid-column:2/3;font-family:'Montserrat',sans-serif;font-size:0.875rem;padding:0.875rem 1.25rem;border:1.5px solid rgba(30,58,95,0.15);border-radius:8px;background:white;color:#1E3A5F;outline:none;transition:border-color 0.2s ease;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='rgba(30,58,95,0.15)'" />
+          <button type="submit" class="btn-primary" style="grid-column:1/3;justify-content:center;font-size:0.9rem;padding:1rem 2rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Request Admission Information
+          </button>
+        </form>
+
+        <div id="form-success" style="display:none;margin-top:1.5rem;background:rgba(107,127,94,0.1);border:1px solid rgba(107,127,94,0.3);border-radius:8px;padding:1rem;color:#4D5E43;font-size:0.875rem;font-weight:500;">
+          Thank you! We'll reach out to you within 24 hours. 🌸
+        </div>
+
+        <p style="font-size:0.75rem;color:#7A95AD;margin-top:1.5rem;">
+          Or call us: <a href="tel:+91XXXXXXXXXX" style="color:#C9A84C;font-weight:600;text-decoration:none;">+91 XXXXX XXXXX</a> &nbsp;·&nbsp;
+          <a href="mailto:admissions@lotusschool.in" style="color:#C9A84C;font-weight:600;text-decoration:none;">admissions@lotusschool.in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 600px) {
+    .enquiry-form { grid-template-columns: 1fr !important; }
+    .enquiry-form > * { grid-column: 1 / 2 !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+<section id="contact" style="padding:5rem 1.5rem;background:linear-gradient(180deg,#F8F3EE 0%,#F0E8DE 100%);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="contact-grid">
+
+    <div class="reveal">
+      <div class="divider-gold" style="justify-content:flex-start;">
+        <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;">Find Us</span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;margin-bottom:1.5rem;">
+        Come Visit Our <em style="color:#C9A84C;">Campus</em>
+      </h2>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:40px;height:40px;background:rgba(201,168,76,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;margin-bottom:0.25rem;">Campus Address</div>
+            <div style="font-size:0.83rem;color:#4A6080;line-height:1.6;">123, Example Street, Sector 4,<br/>Your City — 400001</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:40px;height:40px;background:rgba(201,168,76,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;margin-bottom:0.25rem;">Phone</div>
+            <div style="font-size:0.83rem;color:#4A6080;">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:40px;height:40px;background:rgba(201,168,76,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;margin-bottom:0.25rem;">Email</div>
+            <div style="font-size:0.83rem;color:#4A6080;">admissions@lotusschool.in</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:40px;height:40px;background:rgba(201,168,76,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div style="font-weight:600;color:#1E3A5F;font-size:0.875rem;margin-bottom:0.25rem;">School Hours</div>
+            <div style="font-size:0.83rem;color:#4A6080;">Mon–Fri: 8:00 AM – 1:00 PM<br/>Office: 8:00 AM – 4:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map placeholder -->
+    <div class="reveal" style="border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative;box-shadow:0 8px 24px -4px rgba(30,58,95,0.12);">
+      <img src="https://placehold.co/600x450/F0E8DE/6B7F5E?text=Campus+Map" alt="Campus location map" style="width:100%;height:100%;object-fit:cover;" />
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(248,243,238,0.7);">
+        <div style="text-align:center;">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,#C9A84C,#A8882C);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;box-shadow:0 4px 16px rgba(201,168,76,0.4);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div style="font-family:'Playfair Display',serif;font-weight:600;color:#1E3A5F;font-size:1rem;">Lotus International Preschool</div>
+          <div style="font-size:0.8rem;color:#7A95AD;margin-top:0.25rem;">Your City, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .contact-grid > div:last-child { display: none; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer style="background:linear-gradient(135deg,#152C47 0%,#0F1F33 100%);padding:4rem 1.5rem 2rem;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;opacity:0.03;pointer-events:none;">
+    <div style="position:absolute;top:-30%;right:0%;width:40%;height:120%;background:radial-gradient(ellipse,#C9A84C,transparent 60%);"></div>
+  </div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;">
+    <!-- Top row -->
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);" class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <img src="./Offical Logo.jpg" alt="Lotus International Preschool" style="height:64px;margin-bottom:1.25rem;filter:brightness(0) invert(1);opacity:0.9;object-fit:contain;" />
+        <p style="font-size:0.83rem;line-height:1.75;color:rgba(255,255,255,0.45);max-width:260px;margin-bottom:1.5rem;">
+          Nurturing curious minds and compassionate hearts since our founding. Rooted in values, ready for the world.
+        </p>
+        <!-- Social -->
+        <div style="display:flex;gap:0.75rem;">
+          <a href="#" aria-label="Instagram" style="width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.background='rgba(201,168,76,0.2)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="rgba(255,255,255,0.6)" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" style="width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.background='rgba(201,168,76,0.2)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" style="width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.background='rgba(201,168,76,0.2)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.58C5.12 20.04 12 20.04 12 20.04s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="rgba(255,255,255,0.6)" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Quick Links</h4>
+        <nav style="display:flex;flex-direction:column;gap:0.75rem;">
+          <a href="#about" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About Us</a>
+          <a href="#programs" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Programs</a>
+          <a href="#facilities" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Facilities</a>
+          <a href="#why-us" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Why Lotus</a>
+          <a href="#admissions" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Admissions</a>
+        </nav>
+      </div>
+
+      <!-- Programs -->
+      <div>
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Programs</h4>
+        <nav style="display:flex;flex-direction:column;gap:0.75rem;">
+          <a href="#programs" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Playgroup (2–3 yrs)</a>
+          <a href="#programs" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Nursery (3–4 yrs)</a>
+          <a href="#programs" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">LKG (4–5 yrs)</a>
+          <a href="#programs" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='rgba(255,255,255,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">UKG (5–6 yrs)</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C9A84C;margin-bottom:1.25rem;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.5);">123 Example Street<br/>Your City 400001</div>
+          <a href="tel:+91XXXXXXXXXX" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">+91 XXXXX XXXXX</a>
+          <a href="mailto:hello@lotusschool.in" style="font-size:0.83rem;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">hello@lotusschool.in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);">
+        © 2025 Lotus International Preschool. All rights reserved.
+      </p>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.2);font-style:italic;">
+        Rooted in Values · Ready for the World
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 550px) {
+    .footer-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+  // ── PRELOADER ─────────────────────────────────────────────────────────────
+  ;(function () {
+    var el      = document.getElementById('preloader');
+    var wordEl  = document.getElementById('preloader-word');
+    var textEl  = document.getElementById('preloader-text');
+    var svgEl   = document.getElementById('preloader-svg');
+    var pathEl  = document.getElementById('preloader-path');
+    if (!el) return;
+
+    var WORDS = ["Hello","Bonjour","Ciao","Olà","やあ","Hallå","Guten tag","হ্যালো"];
+    var idx = 0;
+
+    document.body.style.overflow = 'hidden';
+
+    function easeInOut(t) {
+      return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+    }
+
+    function refreshPath(ctrlY) {
+      var w = window.innerWidth, h = window.innerHeight;
+      svgEl.setAttribute('height', h + 300);
+      pathEl.setAttribute('d',
+        'M0 0 L'+w+' 0 L'+w+' '+h+' Q'+(w/2)+' '+ctrlY+' 0 '+h+' L0 0'
+      );
+    }
+
+    refreshPath(window.innerHeight + 300);
+
+    // Fade word in once
+    requestAnimationFrame(function() {
+      wordEl.style.transition = 'opacity 1s ease 0.2s';
+      wordEl.style.opacity = '0.75';
+    });
+
+    function animateCurve(delayMs, durationMs) {
+      var h = window.innerHeight;
+      var from = h + 300, to = h;
+      var t0 = null;
+      function frame(ts) {
+        if (t0 === null) { t0 = ts; requestAnimationFrame(frame); return; }
+        var elapsed = ts - t0 - delayMs;
+        if (elapsed < 0) { requestAnimationFrame(frame); return; }
+        var prog = Math.min(elapsed / durationMs, 1);
+        refreshPath(from + (to - from) * easeInOut(prog));
+        if (prog < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function exit() {
+      animateCurve(300, 700);
+      el.style.transition = 'top 0.8s cubic-bezier(0.76,0,0.24,1) 0.2s';
+      el.style.top = '-100vh';
+      setTimeout(function() {
+        el.remove();
+        document.body.style.overflow = '';
+      }, 1200);
+    }
+
+    function tick() {
+      idx++;
+      if (idx >= WORDS.length) { setTimeout(exit, 1000); return; }
+      textEl.textContent = WORDS[idx];
+      setTimeout(tick, 150);
+    }
+
+    setTimeout(tick, 1000);
+  })();
+  // ──────────────────────────────────────────────────────────────────────────
+
+  // Mobile nav toggle
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, (i % 4) * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+      nav.style.boxShadow = '0 2px 20px rgba(30,58,95,0.08)';
+      nav.style.borderBottom = '1px solid rgba(240,232,222,0.5)';
+    } else {
+      nav.style.boxShadow = 'none';
+      nav.style.borderBottom = 'none';
+    }
+  });
+
+  // Form submission
+  function handleEnquiry(e) {
+    e.preventDefault();
+    const success = document.getElementById('form-success');
+    success.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { success.style.display = 'none'; }, 6000);
+  }
+
+  // ── Pixel Trail (hero gooey background) ──────────────────────────────────
+  ;(function () {
+    const hero = document.getElementById('home');
+    const container = document.getElementById('pixel-trail-container');
+    if (!hero || !container) return;
+
+    const DELAY = 500;          // ms pixel stays lit before vanishing
+    const PIXEL_COLOR = '#E8A5A5'; // lotus pink — fully opaque so gooey threshold passes
+    let pixels = {};
+    let currentPxSz = 0;
+
+    function pxSz() { return window.innerWidth >= 768 ? 32 : 24; }
+
+    function buildGrid() {
+      container.innerHTML = '';
+      pixels = {};
+      currentPxSz = pxSz();
+      const cols = Math.ceil(hero.offsetWidth  / currentPxSz);
+      const rows = Math.ceil(hero.offsetHeight / currentPxSz);
+      const frag = document.createDocumentFragment();
+      for (let r = 0; r < rows; r++) {
+        const rowEl = document.createElement('div');
+        rowEl.style.cssText = 'display:flex;line-height:0;font-size:0;';
+        for (let c = 0; c < cols; c++) {
+          const dot = document.createElement('div');
+          dot.style.cssText = `width:${currentPxSz}px;height:${currentPxSz}px;flex-shrink:0;opacity:0;background:${PIXEL_COLOR};`;
+          pixels[c + ',' + r] = dot;
+          rowEl.appendChild(dot);
+        }
+        frag.appendChild(rowEl);
+      }
+      container.appendChild(frag);
+    }
+
+    function light(col, row) {
+      const dot = pixels[col + ',' + row];
+      if (!dot) return;
+      if (dot._t) clearTimeout(dot._t);
+      dot.style.opacity = '1';
+      dot._t = setTimeout(() => { dot.style.opacity = '0'; }, DELAY);
+    }
+
+    hero.addEventListener('mousemove', (e) => {
+      const sz = currentPxSz || pxSz();
+      const rect = hero.getBoundingClientRect();
+      const col = Math.floor((e.clientX - rect.left) / sz);
+      const row = Math.floor((e.clientY - rect.top)  / sz);
+      light(col, row);
+    });
+
+    // Also light a small cluster around the cursor for more visible effect
+    hero.addEventListener('mousemove', (e) => {
+      const sz = currentPxSz || pxSz();
+      const rect = hero.getBoundingClientRect();
+      const col = Math.floor((e.clientX - rect.left) / sz);
+      const row = Math.floor((e.clientY - rect.top)  / sz);
+      // light immediate neighbours occasionally for blobby merging
+      if (Math.random() < 0.35) light(col + 1, row);
+      if (Math.random() < 0.35) light(col - 1, row);
+      if (Math.random() < 0.35) light(col, row + 1);
+      if (Math.random() < 0.35) light(col, row - 1);
+    });
+
+    requestAnimationFrame(buildGrid);
+
+    let rsz;
+    window.addEventListener('resize', () => {
+      clearTimeout(rsz);
+      rsz = setTimeout(buildGrid, 250);
+    });
+  })();
+  // ─────────────────────────────────────────────────────────────────────────
+
+  // Smooth active nav
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? '#C9A84C' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
