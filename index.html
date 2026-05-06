@@ -502,6 +502,60 @@
 </style>
 
 <!-- ═══════════════════════════════════════════
+     MARQUEE TICKER
+═══════════════════════════════════════════ -->
+<div style="background:#F8F3EE;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);padding:1rem 0;overflow:hidden;position:relative;">
+  <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,#F8F3EE,transparent);z-index:2;pointer-events:none;"></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,#F8F3EE,transparent);z-index:2;pointer-events:none;"></div>
+  <div style="display:flex;width:max-content;animation:marquee-scroll 35s linear infinite;">
+    <div style="display:flex;align-items:center;gap:0;white-space:nowrap;padding-right:0;">
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Learn</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;padding:0 2.5rem;">Explore</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Excel</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6B7F5E;padding:0 2.5rem;">Where Childhood Blooms</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Lotus International Preschool</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;padding:0 2.5rem;">Rooted in Values</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Ready for the World</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6B7F5E;padding:0 2.5rem;">Nurturing Tomorrow's Leaders</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div style="display:flex;align-items:center;gap:0;white-space:nowrap;" aria-hidden="true">
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Learn</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;padding:0 2.5rem;">Explore</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Excel</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6B7F5E;padding:0 2.5rem;">Where Childhood Blooms</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Lotus International Preschool</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;padding:0 2.5rem;">Rooted in Values</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1E3A5F;padding:0 2.5rem;">Ready for the World</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+      <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6B7F5E;padding:0 2.5rem;">Nurturing Tomorrow's Leaders</span>
+      <span style="color:#C9A84C;font-size:1rem;">✦</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
      ABOUT
 ═══════════════════════════════════════════ -->
 <section id="about" style="padding:6rem 1.5rem;background:#FEFCF9;position:relative;overflow:hidden;">
@@ -901,6 +955,120 @@
 <style>
   @media (max-width: 768px) {
     .testimonials-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════════
+     PHOTO GALLERY
+═══════════════════════════════════════════ -->
+<section id="gallery" style="padding:6rem 1.5rem;background:white;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <!-- Heading -->
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-bottom:0.875rem;">
+        <span style="flex:1;max-width:2.5rem;height:1px;background:rgba(201,168,76,0.5);display:block;"></span>
+        <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C9A84C;">School Life</span>
+        <span style="flex:1;max-width:2.5rem;height:1px;background:rgba(201,168,76,0.5);display:block;"></span>
+      </div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3.5vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:#1E3A5F;margin:0 0 1rem;">
+        A Glimpse Into Our <em style="font-style:italic;color:#C9A84C;">World</em>
+      </h2>
+      <p style="font-size:0.9375rem;line-height:1.8;color:#4A6080;max-width:500px;margin:0 auto;">
+        Every corner of Lotus is alive with curiosity, laughter, and learning. Here's a peek into our daily magic.
+      </p>
+    </div>
+
+    <!-- Mosaic grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:240px 240px 240px;gap:1rem;" class="gallery-mosaic">
+
+      <!-- Cell 1 — tall left (spans 2 rows) -->
+      <div class="gl-cell reveal" style="grid-column:1;grid-row:1/3;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/420x500/F0E8DE/6B7F5E?text=Morning+Circle" alt="Morning circle time" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.65) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1.25rem;left:1.25rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;line-height:1.2;">Morning Circle</div>
+          <div style="font-size:0.72rem;opacity:0.75;margin-top:0.2rem;">Where every day begins with joy</div>
+        </div>
+      </div>
+
+      <!-- Cell 2 — top center -->
+      <div class="gl-cell reveal" style="grid-column:2;grid-row:1;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/360x240/D5DDCF/4D5E43?text=Outdoor+Play" alt="Outdoor play area" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.6) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;">Outdoor Discovery</div>
+        </div>
+      </div>
+
+      <!-- Cell 3 — top right -->
+      <div class="gl-cell reveal" style="grid-column:3;grid-row:1;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/360x240/F5CECE/D4868A?text=Art+Studio" alt="Art and craft studio" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.6) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;">Art & Creativity</div>
+        </div>
+      </div>
+
+      <!-- Cell 4 — center middle -->
+      <div class="gl-cell reveal" style="grid-column:2;grid-row:2;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/360x240/EDE0C8/A8882C?text=Reading+Corner" alt="Library and reading corner" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.6) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;">Reading Corner</div>
+        </div>
+      </div>
+
+      <!-- Cell 5 — right middle -->
+      <div class="gl-cell reveal" style="grid-column:3;grid-row:2;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/360x240/C5D4E8/1E3A5F?text=Science+Play" alt="Science and sensory play" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.6) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;">Science & Sensory</div>
+        </div>
+      </div>
+
+      <!-- Cell 6 — bottom left -->
+      <div class="gl-cell reveal" style="grid-column:1;grid-row:3;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/420x240/E8D5C8/6B3A2A?text=Lunch+Time" alt="Lunch and dining area" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.6) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;">Lunch Together</div>
+        </div>
+      </div>
+
+      <!-- Cell 7 — bottom center + right (spans 2 cols) -->
+      <div class="gl-cell reveal" style="grid-column:2/4;grid-row:3;position:relative;border-radius:16px;overflow:hidden;cursor:pointer;">
+        <img src="https://placehold.co/740x240/D5DDCF/4D5E43?text=Music+%26+Movement" alt="Music and movement class" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.55) 0%,transparent 55%);"></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;color:white;">
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;">Music & Movement</div>
+          <div style="font-size:0.72rem;opacity:0.75;margin-top:0.2rem;">Where rhythm meets joy</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="reveal" style="text-align:center;margin-top:2.5rem;">
+      <p style="font-size:0.875rem;color:#7A95AD;margin-bottom:1.25rem;">Want to see more? Schedule a campus visit and experience it in person.</p>
+      <a href="#admissions" style="display:inline-flex;align-items:center;gap:0.5rem;background:linear-gradient(135deg,#C9A84C,#A8882C);color:white;font-weight:700;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.85rem 1.8rem;border-radius:4px;text-decoration:none;box-shadow:0 4px 14px rgba(201,168,76,0.3);transition:transform 0.18s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.18s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(201,168,76,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(201,168,76,0.3)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Book a Campus Tour
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gl-cell img { display:block; }
+  .gl-cell:hover img { transform:scale(1.06); }
+  .gl-cell::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(30,58,95,0.3),transparent 40%); opacity:0; transition:opacity 0.3s; border-radius:16px; }
+  .gl-cell:hover::after { opacity:1; }
+  @media(max-width:768px) {
+    .gallery-mosaic { grid-template-columns:1fr 1fr !important; grid-template-rows:auto !important; }
+    .gallery-mosaic .gl-cell { grid-column:auto !important; grid-row:auto !important; height:200px; }
   }
 </style>
 
