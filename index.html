@@ -108,6 +108,19 @@
     .nav-link:hover::after { width: 100%; }
     .nav-link:focus-visible { outline: 2px solid #C9A84C; outline-offset: 4px; border-radius: 2px; }
 
+    /* Brand */
+    .brand-link:hover { opacity: 0.78; }
+    .brand-link:hover .brand-wordmark { color: #C9A84C; }
+    .brand-wordmark { transition: color 0.2s cubic-bezier(0.4,0,0.2,1); }
+    @media (max-width: 768px) {
+      .brand-logo { height: 64px !important; }
+      .brand-wordmark-full { display: none !important; }
+      .brand-wordmark-short { display: inline !important; }
+    }
+    @media (max-width: 420px) {
+      .brand-wordmark { display: none !important; }
+    }
+
     /* Btn primary */
     .btn-primary {
       display: inline-flex;
@@ -303,18 +316,22 @@
 ═══════════════════════════════════════════ -->
 <header id="navbar" style="position:fixed;top:1.75rem;left:1rem;right:1rem;z-index:50;transition:top 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;background:rgba(248,245,239,0.78);backdrop-filter:blur(18px) saturate(1.05);-webkit-backdrop-filter:blur(18px) saturate(1.05);border:1px solid rgba(200,169,107,0.22);border-radius:18px;box-shadow:0 8px 28px -10px rgba(30,53,87,0.12),0 2px 6px rgba(30,53,87,0.04);">
   <div style="max-width:1200px;margin:0 auto;padding:0 1.25rem;">
-    <div style="display:flex;align-items:center;justify-content:space-between;height:68px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:84px;">
 
-      <!-- Logo -->
-      <a href="#" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;flex-shrink:0;" aria-label="Lotus International Preschool home">
-        <img src="./Offical Logo.jpg" alt="Lotus International Preschool" style="height:44px;width:auto;object-fit:contain;" />
+      <!-- Brand: logo + wordmark -->
+      <a href="#top" class="brand-link" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;flex-shrink:0;transition:opacity 0.2s ease;" aria-label="Lotus International Preschool home">
+        <img src="./Offical Logo.jpg" alt="Lotus International Preschool" style="height:96px;width:auto;object-fit:contain;" class="brand-logo" />
+        <span class="brand-wordmark" style="font-family:'Montserrat',sans-serif;font-weight:500;font-size:0.875rem;letter-spacing:0.06em;text-transform:uppercase;color:#1E3A5F;line-height:1.25;white-space:nowrap;">
+          <span class="brand-wordmark-full">Lotus International Preschool</span>
+          <span class="brand-wordmark-short" style="display:none;">Lotus</span>
+        </span>
       </a>
 
       <!-- Desktop Nav -->
       <nav style="display:flex;align-items:center;gap:2rem;" class="hidden-mobile">
         <a href="#about" class="nav-link">About</a>
         <a href="#programs" class="nav-link">Programs</a>
-        <a href="#features" class="nav-link">Campus</a>
+        <a href="#gallery" class="nav-link">Campus</a>
         <a href="#admissions" class="nav-link">Admissions</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
@@ -444,12 +461,10 @@
     <!-- RIGHT: Cinematic video, contained card -->
     <div style="position:relative;display:flex;justify-content:center;align-items:center;">
       <div class="hero-video-card" style="position:relative;width:100%;max-width:640px;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#F8F5EF 0%,#EAE2D6 100%);border:1px solid rgba(200,169,107,0.22);box-shadow:0 32px 80px -20px rgba(30,53,87,0.22),0 12px 28px -8px rgba(30,53,87,0.12),inset 0 1px 0 rgba(255,255,255,0.6);">
-        <!-- Video -->
-        <video id="cinematic-hero-video" src="./Product_transition_exploded_to_c..._202605071749.mp4"
-          muted playsinline preload="auto"
-          style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;max-width:none;opacity:0;transition:opacity 0.4s ease;mix-blend-mode:multiply;"></video>
+        <!-- Mascot fill (replaces video) -->
+        <img src="./Mascot.png" alt="Lotus mascot" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72%;height:auto;object-fit:contain;" />
 
-        <!-- Soft ivory wash over video -->
+        <!-- Soft ivory wash -->
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(248,245,239,0.15) 0%,rgba(248,245,239,0) 30%,rgba(248,245,239,0) 70%,rgba(234,226,214,0.55) 100%);pointer-events:none;"></div>
 
         <!-- Magical pollen layer -->
@@ -463,14 +478,8 @@
             <div style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:#1E3557;line-height:1.2;">Learn · Explore · Excel</div>
             <div style="font-family:'Montserrat',sans-serif;font-size:0.68rem;color:#6B705C;font-weight:500;letter-spacing:0.06em;margin-top:0.15rem;">Our guiding philosophy</div>
           </div>
-          <div style="display:flex;align-items:center;gap:0.45rem;background:rgba(248,245,239,0.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.6);border-radius:100px;padding:0.55rem 0.9rem;box-shadow:0 8px 22px -6px rgba(30,53,87,0.15);">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="#C8A96B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span style="font-family:'Playfair Display',serif;font-size:0.85rem;font-weight:600;color:#1E3557;">4.9</span>
-          </div>
         </div>
       </div>
-
-      <!-- Floating mascot accent removed per request -->
     </div>
   </div>
 
@@ -509,35 +518,7 @@
   </style>
 
   <script>
-    (function () {
-      var v = document.getElementById('cinematic-hero-video');
-      if (!v) return;
-      var FADE = 0.6;
-      function tick() {
-        if (!isNaN(v.duration) && v.duration > 0) {
-          var t = v.currentTime;
-          var d = v.duration;
-          var op = 1;
-          if (t < FADE) op = t / FADE;
-          else if (t > d - FADE) op = Math.max(0, (d - t) / FADE);
-          v.style.opacity = (op * 0.78).toFixed(3);
-        }
-        requestAnimationFrame(tick);
-      }
-      v.addEventListener('ended', function () {
-        v.style.opacity = '0';
-        setTimeout(function () {
-          v.currentTime = 0;
-          var p = v.play();
-          if (p && p.catch) p.catch(function(){});
-        }, 120);
-      });
-      v.addEventListener('loadedmetadata', function () {
-        var p = v.play();
-        if (p && p.catch) p.catch(function(){});
-      });
-      requestAnimationFrame(tick);
-    })();
+    /* video removed */
   </script>
 </section>
 
@@ -782,15 +763,63 @@
   <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="about-grid">
     <!-- Image side -->
     <div style="position:relative;" class="reveal">
-      <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/5;position:relative;box-shadow:0 8px 24px -4px rgba(30,58,95,0.12),0 24px 48px -8px rgba(30,58,95,0.15);">
-        <img src="https://placehold.co/480x600/F0E8DE/6B7F5E?text=Our+Philosophy" alt="Nurturing environment" style="width:100%;height:100%;object-fit:cover;" />
-        <div style="position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(201,168,76,0.15),transparent 50%);mix-blend-mode:multiply;"></div>
+      <div style="border-radius:22px;overflow:hidden;aspect-ratio:4/5;position:relative;box-shadow:0 8px 24px -4px rgba(30,58,95,0.12),0 24px 48px -8px rgba(30,58,95,0.15);border:1px solid rgba(201,168,76,0.18);background:linear-gradient(160deg,#F8F5EF 0%,#EAE2D6 100%);">
+        <video id="philosophy-video"
+          src="./Mascot- philosophy.mp4"
+          muted playsinline loop preload="metadata"
+          aria-describedby="philosophy-video-desc"
+          style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom right,rgba(201,168,76,0.10),transparent 50%);mix-blend-mode:multiply;pointer-events:none;"></div>
+        <span id="philosophy-video-desc" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);border:0;">A short film of the Lotus mascot expressing the school's philosophy of joyful, nurturing early-years learning.</span>
+        <!-- Unmute button -->
+        <button id="philosophy-unmute" type="button" aria-label="Unmute mascot video" aria-pressed="false"
+          style="position:absolute;right:1rem;bottom:1rem;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.65);background:rgba(248,245,239,0.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#A88A4A;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px -6px rgba(30,53,87,0.25),0 2px 6px rgba(200,169,107,0.18);transition:transform 0.2s ease, background 0.2s ease, color 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)';this.style.background='#FEFCF9';this.style.color='#8B6F2A'"
+          onmouseout="this.style.transform='translateY(0)';this.style.background='rgba(248,245,239,0.88)';this.style.color='#A88A4A'">
+          <svg id="philosophy-unmute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="currentColor"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
       </div>
       <!-- Quote overlay -->
       <div style="position:absolute;bottom:-2rem;right:-2rem;background:linear-gradient(135deg,#C9A84C,#A8882C);border-radius:16px;padding:1.5rem;max-width:220px;box-shadow:0 8px 24px rgba(201,168,76,0.35);">
         <div style="font-family:'Playfair Display',serif;font-size:2.25rem;font-weight:700;color:white;line-height:1;margin-bottom:0.25rem;">15+</div>
         <div style="font-size:0.8rem;color:rgba(255,255,255,0.85);font-weight:500;line-height:1.4;">Dedicated educators shaping futures</div>
       </div>
+      <script>
+        (function(){
+          var v = document.getElementById('philosophy-video');
+          var btn = document.getElementById('philosophy-unmute');
+          var icon = document.getElementById('philosophy-unmute-icon');
+          if (!v || !btn) return;
+          var ICON_MUTED = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="currentColor"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+          var ICON_ON = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="currentColor"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>';
+          btn.addEventListener('click', function(){
+            v.muted = !v.muted;
+            var on = !v.muted;
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.setAttribute('aria-label', on ? 'Mute mascot video' : 'Unmute mascot video');
+            icon.innerHTML = on ? ICON_ON : ICON_MUTED;
+            if (on) { var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+          });
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function(entries){
+              entries.forEach(function(e){
+                if (e.isIntersecting) {
+                  var p = v.play(); if (p && p.catch) p.catch(function(){});
+                } else {
+                  v.pause();
+                }
+              });
+            }, { threshold: 0.35 });
+            io.observe(v);
+          } else {
+            var p = v.play(); if (p && p.catch) p.catch(function(){});
+          }
+        })();
+      </script>
     </div>
 
     <!-- Text side -->
@@ -843,7 +872,7 @@
 <style>
   @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-    .about-grid > div:first-child { display: none; }
+    .about-grid > div:first-child { display: block !important; order: -1; }
   }
 </style>
 
