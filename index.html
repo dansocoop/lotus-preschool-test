@@ -192,11 +192,54 @@
 
     /* Program card hover */
     .program-card {
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    }
+    .program-card .program-art {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-origin: center center;
+    }
+    .program-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .program-card .program-body {
+      flex: 1 1 auto;
+    }
+    .program-card .program-body p {
+      flex: 1 1 auto;
+    }
+    .program-card .learn-more {
+      margin-top: auto;
+      align-self: flex-start;
     }
     .program-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 16px -2px rgba(30, 58, 95, 0.1), 0 24px 48px -8px rgba(30, 58, 95, 0.16);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px -6px rgba(30, 58, 95, 0.14), 0 36px 60px -12px rgba(30, 58, 95, 0.22);
+    }
+    .program-card:hover .program-art {
+      transform: scale(1.03);
+    }
+    .program-illust {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      pointer-events: none;
+      color: #1E3A5F;
+      opacity: 0.4;
+      z-index: 2;
+    }
+    .program-card .learn-more {
+      transition: color 0.25s ease;
+    }
+    .program-card .learn-more svg {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .program-card .learn-more:hover {
+      color: #1E3A5F;
+    }
+    .program-card .learn-more:hover svg {
+      transform: translateX(4px);
     }
 
     /* Value card */
@@ -460,25 +503,8 @@
 
     <!-- RIGHT: Mascot hero image, large & centered -->
     <div class="hero-mascot-col" style="position:relative;display:flex;justify-content:center;align-items:center;">
-      <!-- Radial glow behind mascot -->
-      <div style="position:absolute;inset:0;background:radial-gradient(circle at 55% 55%, rgba(245,230,200,0.55) 0%, rgba(200,169,107,0.18) 40%, transparent 70%);pointer-events:none;"></div>
-      <img src="./mascot-hero-waving.png" alt="Lotus mascot waving hello" class="hero-mascot-img" width="620" height="820" loading="eager" style="display:block;width:100%;max-width:620px;height:auto;object-fit:contain;position:relative;z-index:1;animation:mascot-entrance 0.8s ease-out both, mascot-hero-float 4.5s ease-in-out 0.8s infinite;" />
+      <img src="./mascot-hero-waving.png" alt="Lotus mascot waving hello" class="hero-mascot-img" style="display:block;width:100%;max-width:620px;height:auto;object-fit:contain;" />
     </div>
-
-    <style>
-      @keyframes mascot-entrance {
-        from { opacity:0; transform:translateY(28px); }
-        to   { opacity:1; transform:translateY(0); }
-      }
-      @keyframes mascot-hero-float {
-        0%,100% { transform:translateY(0px); }
-        50%      { transform:translateY(-8px); }
-      }
-      @media(max-width:900px) {
-        .hero-mascot-col { order:-1; }
-        .hero-mascot-img { max-width:280px !important; }
-      }
-    </style>
   </div>
 
   <!-- Soft transition into next section -->
@@ -935,21 +961,29 @@
       </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="programs-grid">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;align-items:stretch;" class="programs-grid">
 
       <!-- Playgroup -->
       <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
-        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#F5CECE,#E8A5A5);">
+        <div class="program-art" style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#F5CECE,#E8A5A5);">
           <img src="https://placehold.co/300x180/F5CECE/D4868A?text=Playgroup" alt="Playgroup" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
-          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+          <!-- Stacked wooden blocks -->
+          <svg class="program-illust" width="68" height="68" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="38" width="22" height="20" rx="2"/>
+            <rect x="32" y="22" width="22" height="20" rx="2"/>
+            <rect x="16" y="6" width="22" height="14" rx="2"/>
+            <path d="M14 48 L 20 48 M 40 32 L 46 32 M 24 13 L 30 13"/>
+          </svg>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;z-index:2;">
             <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#E8A5A5;text-transform:uppercase;">Age 2–3</span>
           </div>
         </div>
-        <div style="padding:1.5rem;">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">Playgroup</h3>
-          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">A warm and engaging introduction to learning through sensory exploration, movement, music, communication, and social interaction.</p>
-          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;transition:gap 0.2s ease;">
+        <div class="program-body" style="padding:1.5rem;display:flex;flex-direction:column;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.25rem;">Playgroup</h3>
+          <h4 style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;font-weight:500;color:#1E3A5F;margin:0 0 0.65rem;">A Gentle Beginning to Learning</h4>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">A nurturing first step into learning — where children feel safe, confident, and curious. Through sensory play, music, movement, storytelling, and exploration, little ones begin developing communication, independence, and a love for discovery.</p>
+          <a href="#admissions" class="learn-more" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:inline-flex;align-items:center;gap:0.45rem;letter-spacing:0.05em;text-transform:uppercase;">
             Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -957,17 +991,27 @@
 
       <!-- Nursery -->
       <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
-        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#D5DDCF,#6B7F5E);">
+        <div class="program-art" style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#D5DDCF,#6B7F5E);">
           <img src="https://placehold.co/300x180/D5DDCF/6B7F5E?text=Nursery" alt="Nursery" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
-          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+          <!-- Leaf with crayon -->
+          <svg class="program-illust" width="68" height="68" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 52 C 8 26, 26 8, 52 10 C 52 36, 34 54, 8 52 Z"/>
+            <path d="M10 50 L 40 22"/>
+            <path d="M22 30 L 30 30 M 26 38 L 36 38"/>
+            <path d="M40 32 L 56 48"/>
+            <path d="M40 32 L 36 36 L 52 52 L 56 48 Z"/>
+            <path d="M50 50 L 56 56"/>
+          </svg>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;z-index:2;">
             <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#6B7F5E;text-transform:uppercase;">Age 3–4</span>
           </div>
         </div>
-        <div style="padding:1.5rem;">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">Nursery</h3>
-          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Encouraging curiosity, creativity, language development, and foundational concepts through joyful play-based experiences.</p>
-          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+        <div class="program-body" style="padding:1.5rem;display:flex;flex-direction:column;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.25rem;">Nursery</h3>
+          <h4 style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;font-weight:500;color:#1E3A5F;margin:0 0 0.65rem;">Building Curiosity & Confidence</h4>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">The Nursery program encourages children to explore, imagine, and express themselves through experiential, play-based learning. Hands-on activities, storytelling, art, and thematic exploration help children build language, social, emotional, and early academic skills — all in a joyful environment.</p>
+          <a href="#admissions" class="learn-more" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:inline-flex;align-items:center;gap:0.45rem;letter-spacing:0.05em;text-transform:uppercase;">
             Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -975,17 +1019,28 @@
 
       <!-- LKG -->
       <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
-        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#EDE0C8,#C9A84C);">
+        <div class="program-art" style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#EDE0C8,#C9A84C);">
           <img src="https://placehold.co/300x180/EDE0C8/C9A84C?text=LKG" alt="LKG" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
-          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+          <!-- Open book with pencil -->
+          <svg class="program-illust" width="68" height="68" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 20 C 14 16, 24 16, 32 22 C 40 16, 50 16, 58 20 L 58 50 C 50 46, 40 46, 32 52 C 24 46, 14 46, 6 50 Z"/>
+            <path d="M32 22 L 32 52"/>
+            <path d="M12 28 L 26 28 M 12 34 L 26 34 M 12 40 L 24 40"/>
+            <path d="M38 28 L 52 28 M 38 34 L 52 34"/>
+            <path d="M44 6 L 58 20"/>
+            <path d="M44 6 L 40 10 L 54 24 L 58 20 Z"/>
+            <path d="M52 22 L 56 18"/>
+          </svg>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;z-index:2;">
             <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#C9A84C;text-transform:uppercase;">Age 4–5</span>
           </div>
         </div>
-        <div style="padding:1.5rem;">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">LKG</h3>
-          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Building confidence, literacy, numeracy, collaboration, expression, and independent thinking through experiential learning.</p>
-          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+        <div class="program-body" style="padding:1.5rem;display:flex;flex-direction:column;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.25rem;">LKG</h3>
+          <h4 style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;font-weight:500;color:#1E3A5F;margin:0 0 0.65rem;">Encouraging Independent Thinking</h4>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Our LKG program helps children strengthen confidence, communication, creativity, and foundational literacy and numeracy skills. Through thematic learning, collaborative activities, and guided exploration, children develop curiosity, problem-solving abilities, and school readiness.</p>
+          <a href="#admissions" class="learn-more" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:inline-flex;align-items:center;gap:0.45rem;letter-spacing:0.05em;text-transform:uppercase;">
             Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -993,17 +1048,25 @@
 
       <!-- UKG -->
       <div class="program-card reveal" style="background:white;border-radius:16px;overflow:hidden;box-shadow:0 4px 6px -1px rgba(30,58,95,0.06),0 12px 28px -4px rgba(30,58,95,0.08);border:1px solid rgba(240,232,222,0.6);">
-        <div style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#C5D4E8,#1E3A5F);">
+        <div class="program-art" style="height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#C5D4E8,#1E3A5F);">
           <img src="https://placehold.co/300x180/C5D4E8/1E3A5F?text=UKG" alt="UKG" style="width:100%;height:100%;object-fit:cover;opacity:0.7;" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,0.35),transparent);"></div>
-          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;">
+          <!-- Graduation cap -->
+          <svg class="program-illust" width="68" height="68" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 24 L 32 12 L 60 24 L 32 36 Z"/>
+            <path d="M14 30 L 14 44 C 14 48, 22 52, 32 52 C 42 52, 50 48, 50 44 L 50 30"/>
+            <path d="M58 25 L 58 40"/>
+            <path d="M55 42 C 55 44, 57 46, 58 46 C 59 46, 61 44, 61 42"/>
+          </svg>
+          <div style="position:absolute;top:1rem;left:1rem;background:rgba(254,252,249,0.95);border-radius:8px;padding:0.35rem 0.75rem;z-index:2;">
             <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:#1E3A5F;text-transform:uppercase;">Age 5–6</span>
           </div>
         </div>
-        <div style="padding:1.5rem;">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.5rem;">UKG</h3>
-          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">Preparing children for formal schooling with a strong foundation in academics, communication, creativity, and life skills.</p>
-          <a href="#admissions" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:flex;align-items:center;gap:0.35rem;letter-spacing:0.05em;text-transform:uppercase;">
+        <div class="program-body" style="padding:1.5rem;display:flex;flex-direction:column;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#1E3A5F;margin-bottom:0.25rem;">UKG</h3>
+          <h4 style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;font-weight:500;color:#1E3A5F;margin:0 0 0.65rem;">Preparing Children for the Future</h4>
+          <p style="font-size:0.82rem;line-height:1.7;color:#4A6080;margin-bottom:1.25rem;">The UKG program prepares children for a smooth transition into formal schooling through a balanced approach to academics, creativity, communication, and independent learning. Children grow into confident, curious, and capable learners — ready for the world.</p>
+          <a href="#admissions" class="learn-more" style="font-size:0.78rem;font-weight:600;color:#C9A84C;text-decoration:none;display:inline-flex;align-items:center;gap:0.45rem;letter-spacing:0.05em;text-transform:uppercase;">
             Learn More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -1178,9 +1241,59 @@
 </style>
 
 <!-- ═══════════════════════════════════════════
-     PHOTO GALLERY — sticky scroll
+     CAMPUS — Coming Soon
 ═══════════════════════════════════════════ -->
-<section id="gallery" style="background:#020617;">
+<section id="gallery" class="campus-soon" style="position:relative;padding:8rem 1.5rem;background:#F7F4EE;overflow:hidden;">
+
+  <!-- soft sand radial glow -->
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 50%,rgba(218,196,148,0.35) 0%,rgba(218,196,148,0.12) 40%,transparent 75%);pointer-events:none;"></div>
+
+  <!-- thin gold/olive top accents -->
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(154,140,90,0.35),transparent);"></div>
+
+  <div class="campus-soon-inner reveal" style="position:relative;max-width:700px;margin:0 auto;text-align:center;">
+
+    <!-- decorative line above tag -->
+    <div aria-hidden="true" style="width:3.5rem;height:1px;background:#9A8C5A;margin:0 auto 1.75rem;opacity:0.65;"></div>
+
+    <!-- top tag -->
+    <div style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#9A8C5A;margin-bottom:1.75rem;">
+      Opening 2027
+    </div>
+
+    <!-- headline -->
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5.4vw,4rem);font-weight:600;letter-spacing:-0.02em;line-height:1.12;color:#1E3A5F;margin:0 0 1.75rem;">
+      A Campus Designed <em style="font-style:italic;color:#1E3A5F;">with Intention.</em>
+    </h2>
+
+    <!-- body -->
+    <p style="font-family:'Montserrat',sans-serif;font-size:1.05rem;line-height:1.85;color:rgba(30,58,95,0.8);margin:0 auto 3rem;max-width:600px;">
+      Our doors open in 2027. Until then, we're thoughtfully crafting every space — every classroom, every reading nook, every garden — to be a place where childhood truly blossoms. We can't wait to welcome you home.
+    </p>
+
+    <!-- buttons -->
+    <div class="campus-soon-cta" style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <a href="#admissions" style="display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#C9A84C,#A8882C);color:white;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:1rem 2.1rem;border-radius:4px;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,0.3);transition:transform 0.18s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.18s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 30px rgba(201,168,76,0.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(201,168,76,0.3)'">
+        Book a Campus Visit
+      </a>
+      <a href="#contact" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#1E3A5F;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:1rem 2.1rem;border-radius:4px;text-decoration:none;border:1.5px solid rgba(30,58,95,0.35);transition:background 0.2s ease,border-color 0.2s ease,transform 0.18s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.background='rgba(30,58,95,0.06)';this.style.borderColor='#1E3A5F';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(30,58,95,0.35)';this.style.transform=''">
+        Subscribe for Updates
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media(max-width:560px) {
+    .campus-soon { padding:5.5rem 1.5rem !important; }
+    .campus-soon-cta { flex-direction:column !important; align-items:stretch !important; }
+    .campus-soon-cta a { width:100%; }
+  }
+</style>
+
+<!-- legacy gallery markup removed -->
+<section style="display:none;">
 
   <!-- Intro panel: normal scroll (not sticky — mirrors original component structure) -->
   <div style="height:100vh;display:grid;place-content:center;background:#0f172a;position:relative;overflow:hidden;">
